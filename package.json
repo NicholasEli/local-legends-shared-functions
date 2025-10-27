@@ -1,0 +1,22 @@
+{
+  "name": "local-legends-shared-functions",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "clear && nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/NicholasEli/local-legends-shared-functions.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/NicholasEli/local-legends-shared-functions/issues"
+  },
+  "homepage": "https://github.com/NicholasEli/local-legends-shared-functions#readme",
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}
