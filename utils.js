@@ -3,6 +3,6 @@
  * @param { int } milliseconds
  * @return { promise } resolves once time has been reached
  * */
-export const asyncTimeout = function (ms) {
+export const async_timeout = function (ms) {
 	return new Promise((resolve) => setTimeout(resolve, ms));
 };
