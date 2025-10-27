@@ -78,6 +78,11 @@ export const sort_by_average_score = function (event, heat) {
 	if (event.judges && event.judges.length) {
 		const runs = Object.entries(heat.athletes).map(([athlete_id, obj]) => {
 			let total_runs = Object.keys(obj.runs).length;
+			let athlete_runs = Object.values(obj.runs).map((run) => ({
+				...run,
+				score: parseFloat(run.score)
+			}));
+
 			let judge_scores = Object.values(obj.runs).map(
 				(run) =>
 					Object.values(run.judges).reduce((acc, curr) => acc + parseFloat(curr), 0) /
@@ -96,9 +101,13 @@ export const sort_by_average_score = function (event, heat) {
 				total_runs = total_runs - 1;
 			}
 
-			judge_scores = judge_scores.reduce((acc, curr) => acc + parseFloat(curr), 0) / total_runs;
+			const score = judge_scores.reduce((acc, curr) => acc + parseFloat(curr), 0) / total_runs;
 
-			return judge_scores;
+			return {
+				athlete_id,
+				runs: athlete_runs,
+				score
+			};
 		});
 
 		return runs;
